@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import subprocess
+
+def vim_shiji(num):
+    files = os.listdir('locshiji')
+    pfiles =[]
+    i=0
+    for filename in files:
+        if i < num and filename.endswith('csv') :
+            pfiles.append(filenmae)
+            i+= 1
+
+    i = 0
+    line =''
+    for f in pfiles:
+        line += '\n ' + str(i+1) + ')' + f 
+        i += 1
+
+    vim =''
+    if os.path.isfile('/usr/bin/gvim') :
+        print('/isr/bin/gvim はあります。')
+        vim = 'gvim'
+    else:
+        print('/isr/bin/gvim はありません。')
+        vim = 'gvim.exe'
+
+    res = ''
+    while res !='q' :
+        print(line)
+        print('*'*20)
+        res = input('表示するファイルを選んでください。(終了=q):')
+        if res != 'q':
+            result = subprocess.run((vim, os.path.join('locshiji', pfiles[int(res)-1])))

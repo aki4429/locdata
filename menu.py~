@@ -1,0 +1,25 @@
+﻿#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+#TFC輸入カバーのメニュー
+
+from tfc_cover import TfcCover
+
+tc = TfcCover()
+
+menu_line =""" 
+1)検索
+2)ロケーション指示 (output)
+3)更新
+"""
+
+ans = ''
+while ans != 'q':
+    print(menu_line)
+    ans = input('メニューを選んでください。(q=終了)')
+    if ans == '1':
+        tc.search()
+    elif ans == '2':
+        tc.make_shiji()
+    elif ans == '3':
+        tc.make_koshin()
